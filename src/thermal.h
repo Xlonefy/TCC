@@ -1,4 +1,5 @@
-﻿#ifndef THERMAL_H
+﻿
+#ifndef THERMAL_H
 #define THERMAL_H
 
 typedef struct {
