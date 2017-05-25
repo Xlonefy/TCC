@@ -6,6 +6,8 @@ typedef struct {
 	unsigned short temperature;
 } thermometer;
 
+
+// configura o conversor analógico-digital para funcionar com os termopares
 void setup_thermocouples(char ports)
 {
 	// configura as entradas AN0, AN1 e AN3 como entradas analógicas
@@ -23,6 +25,7 @@ void setup_thermocouples(char ports)
 	
 }
 
+// mede a temperatura de um ou mais termopares
 void measure_temperature(themometer** therms, int size)
 {
 	// realiza as medições para todos os termometros
