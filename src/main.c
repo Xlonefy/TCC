@@ -1,5 +1,11 @@
+/*
+ * main.c
+ * 
+ * Rotina principal do programa.
+ * 
+ */
 
-#include <pic.h>
+#include <xc.h>
 #include "thermal.h"
 
 void main(void)

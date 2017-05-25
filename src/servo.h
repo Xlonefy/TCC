@@ -1,4 +1,10 @@
-﻿
+﻿/*
+ * servo.h
+ * 
+ * Funções relacionadas ao uso de servos.
+ *
+ */
+
 #ifndef SERVO_H
 #define SERVO_H
 

@@ -1,4 +1,11 @@
-﻿
+/*
+ * thermal.h
+ * 
+ * Funções relacionadas ao uso de termopares.
+ *
+ */
+
+
 #ifndef THERMAL_H
 #define THERMAL_H
 
@@ -14,7 +21,7 @@ void setup_thermocouples(char ports)
 	// configura as entradas AN0, AN1 e AN3 como entradas analógicas
 	ANSEL  = ports;
 
-	#warning Voltage reference not configured
+	#warning Referência de tensão não configurada
 	
 	// liga o conversor ADC 
 	// Obs. o mesmo registrador seleciona o canal utilizado
@@ -27,20 +34,20 @@ void setup_thermocouples(char ports)
 }
 
 // mede a temperatura de um ou mais termopares
-void measure_temperature(themometer** therms, int size)
+void measure_temperature(thermometer** therms, int size)
 {
 	// realiza as medições para todos os termometros
 	for (int i = 0; i < size; i++)
 	{
 		// seleciona a porta do termopar e inicia a conversão
-		ADCON0 = thermometer[i]->port << 2 + 3;
+		ADCON0 = therms[i]->port << 2 + 3;
 		
 		// espera o fim da conversão
 		while (ADCON0 & 0x02);
 		
 		// guarda o valor medido
 		#warning Constante de conversão não configurada
-		thermometer[i]->temperature = (ADRESL >> 6) + (ADRESH << 2);
+		therms[i]->temperature = (ADRESL >> 6) + (ADRESH << 2);
 		
 	}	
 }
